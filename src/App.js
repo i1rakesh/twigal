@@ -1,18 +1,21 @@
 import React from "react";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Register from "./components/Login/Register";
 import Login from "./components/Login/Login";
-import { Route, Routes } from "react-router-dom";
+// import { Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    // <Routes>
-    //   <Route path="/" element={<Register />} />
-    //   <Route path="/Signin" element={<Login />} />
-    // </Routes>
-    <div>
-        
-    <Login/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<Login />} />
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

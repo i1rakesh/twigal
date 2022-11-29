@@ -2,7 +2,8 @@ import React from "react";
 import "./bubble.css";
 import "./login.css";
 import Logos from "./logo.png";
-import {GoogleButton} from 'react-google-button'
+import { GoogleButton } from "react-google-button";
+
 const Login = () => {
   return (
     <>
@@ -29,15 +30,9 @@ const Login = () => {
             Login
             <br />
           </h1>
-          <form action="" method="POST" class="form login">
-        
+          <form action="" method="POST" className="form login">
             <div className="form_field">
-              <input
-                type="email"
-                name="email"
-                placeholder="email"
-                required
-              />
+              <input type="email" name="email" placeholder="email" required />
             </div>
 
             <div className="form_field">
@@ -55,12 +50,12 @@ const Login = () => {
               </button>
             </div>
             <div className="google-auth">
-              <GoogleButton/>
-              </div>
+              <GoogleButton />
+            </div>
           </form>
 
           <p className="text--center">
-            Don't have an account <a href="../BlogArea/SignUp.html">Sign up now</a>
+            Don't have an account <a href="./Register">Sign up now</a>
           </p>
         </div>
       </div>
