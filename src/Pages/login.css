@@ -22,7 +22,7 @@ body {
   height: 100%;
   display: grid;
   place-items: center;
-  padding: 2rem;
+  /* padding: 2rem; */
   font-family: var(--font-family);
   /* background:#29b6f6; */
   overflow: hidden;
