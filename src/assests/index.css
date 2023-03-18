@@ -25,3 +25,20 @@
   }
 @tailwind components;
 @tailwind utilities;
+
+.message.owner {
+ 
+  display: flex;
+  flex-direction: row-reverse;
+}
+.message.owner p {
+  background-color: #45b7ec;
+  color: aliceblue;
+  border-radius: 4rem;
+}
+.messagecontent.owner{
+  align-items: flex-end;
+}
+body{
+  margin: 0.5rem;
+}

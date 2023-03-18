@@ -13,6 +13,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 import { AuthContext } from "../context/AuthContext";
+import search from '../assests/search.png'
 const Search = () => {
   const [username, setUsername] = useState("");
   const [user, setUser] = useState("");
@@ -74,8 +75,8 @@ const Search = () => {
     setUsername("")
   };
   return (
-    <div className="border border-slate-600 rounded-2xl p-1">
-      <div className="p-2 ">
+    <div className="border border-white rounded-2xl p bg-white">
+      <div className="p-2 flex">
         <input
           placeholder="Search User"
           className="rounded-full w-full h-8 px-1.5"
@@ -84,6 +85,7 @@ const Search = () => {
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         />
+        <img src={search} alt="" />
       </div>
       {err && <span> User not fund!</span>}
       {user && (

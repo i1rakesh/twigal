@@ -26,11 +26,11 @@ const Chats = () => {
     dispatch({type:"CHANGE_USER", payload: u})
   )
   return (
-    <div className="mt-2 w-80">
+    <div className="mt-2 h-4/5 w-96 overflow-y-scroll mr-1">
       {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
-        <div key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)} className="p-2 flex space-x-3 cursor-pointer bg-white hover:bg-slate-200 rounded-2xl">
+        <div key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)} className="mt-4 p-2 flex space-x-3 cursor-pointer bg-white hover:bg-slate-200 rounded-2xl">
           <img
-            className="object-cover rounded-full w-10 h-10"
+            className=" mt-1 object-cover rounded-full w-12 h-12"
             src={chat[1].userInfo.photoURL}
             alt=""
           />

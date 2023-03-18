@@ -4,8 +4,7 @@ import Search from "../components/Search"
 import Chats from '../components/Chats'
 const Sidebar =  () =>{
     return (
-    // flex-1
-        <div className='ml-2'>Slideabar
+        <div className='rounded-xl bg-opacity-30 bg-gray-600 bg-flex-1 ml-2 mt-4 h-full'>
         <Search/>
         <Chats/>
         </div>

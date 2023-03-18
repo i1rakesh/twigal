@@ -2,10 +2,10 @@ import { doc, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
-import Message from './Message'
+import Message from "./Message";
 
-const Messages = () =>{
-    const [messages, setMessages] = useState([]);
+const Messages = () => {
+  const [messages, setMessages] = useState([]);
   const { data } = useContext(ChatContext);
 
   useEffect(() => {
@@ -19,12 +19,17 @@ const Messages = () =>{
   }, [data.chatId]);
 
   console.log(messages)
-    return(
-        <div className='h-4/5 overflow-scroll overflow-x-hidden'>
-           {messages.map((m)=>(
-            <Message Message={m} key={m.id}/>
-           ))} 
-        </div>
-    );
+
+  return (
+    <div className="h-full overflow-scroll overflow-x-hidden bg-opacity-30 bg-gray-600">
+      {messages.map((m) => (
+        <Message message={m} key={m.id} />
+      ))}
+    </div>
+  );
 };
-export default Messages 
+
+export default Messages;
+
+
+// 

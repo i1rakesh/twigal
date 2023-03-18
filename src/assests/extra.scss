@@ -1,0 +1,11 @@
+.message{
+    &.owner{
+      display: flex; 
+      flex-direction: row-reverse; 
+      p{
+        background-color:rgb(69, 183, 236) ;
+        color: aliceblue;
+        border-radius: 4rem;
+      }
+    }
+}

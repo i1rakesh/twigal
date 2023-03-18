@@ -11,7 +11,7 @@ import {
     updateDoc,
   } from "firebase/firestore";
   import { db, storage } from "../firebase";
-import { v4 as uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
   import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 const Input = () =>{
     const [text, setText] = useState("");
@@ -22,7 +22,7 @@ const Input = () =>{
 
   const handleSend = async () => {
     if (img) {
-      const storageRef = ref(storage, uuid());
+      const storageRef = ref(storage, uuidv4());
 
       const uploadTask = uploadBytesResumable(storageRef, img);
 
@@ -34,7 +34,7 @@ const Input = () =>{
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
             await updateDoc(doc(db, "chats", data.chatId), {
               messages: arrayUnion({
-                id: uuid(),
+                id: uuidv4(),
                 text,
                 senderId: currentUser.uid,
                 date: Timestamp.now(),
@@ -47,7 +47,7 @@ const Input = () =>{
     } else {
         await updateDoc(doc(db, "chats", data.chatId), {
             messages: arrayUnion({
-              id: uuid(),
+              id: uuidv4(),
               text,
               senderId: currentUser.uid,
               date: Timestamp.now(),
@@ -73,10 +73,9 @@ const Input = () =>{
     setImg(null);
   };
     return(
-        <div className='h-14 rounded-2xl m-2 p-2 bg-white flex justify-between'>
+        <div className='h-14 rounded-2xl p-2 bg-white flex '>
             <input className='w-full' type="text" name="message" placeholder='Enter your message ' onChange={(e)=>setText(e.target.value)} value={text}/>
             <div className=' flex align-middle gap-2'>
-             <img className='h-8 cursor-pointer' src={attach} alt="" />
              <img className='h-8 cursor-pointer' src={attach} alt="" />
              <input type="file" style={{display:"none"}} id="file" onChange={(e)=>setImg(e.target.files[0])}/>
              <label htmlFor="file">

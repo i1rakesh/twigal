@@ -1,19 +1,20 @@
 import React from "react";
 import twigal from "../assests/Twigal.png";
 import { signOut } from "firebase/auth";
-import "../assests/navbar";
+
 import { auth } from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import "../assests/navbar";
 const Navbar = () => {
   const {currentUser} = useContext(AuthContext)
   return (
     <>
       <nav
-        class="relative w-full flex flex-wrap items-center justify-between py-2 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+        class="rounded-lg m-1 w-90 h-18 flex flex-wrap items-center justify-between py-2 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
         
         <div className="flex">
-          <button class="navbar-burger flex items-center text-blue-600 p-3 left-0">
+          <button id="navbar-burger" class=" flex items-center text-blue-600 p-3 left-0">
           
             <svg
               class=" h-4 w-4 fill-current"
@@ -26,21 +27,21 @@ const Navbar = () => {
           </button>
           <img src={twigal} className="h-10"/>
           <div className="flex mx-2 mt-2 justify-evenly">
-            <img className="object-cover rounded-full bg-black flex w-10 h-8 " src={currentUser.photoURL} alt="" />
-            <span className="mx-2 font-medium">{currentUser.displayName}</span>
+            <img className="object-cover rounded-full bg-black flex w-10 h-10 " src={currentUser.photoURL} alt="" />
+            <span className="mx-2 font-bold">{currentUser.displayName}</span>
             <button onClick={()=>signOut(auth)} className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white hover:bg-red-600 hover:text-white px-2 rounded-md">Logout</button>
           </div>
         </div>
         
       </nav>
-      <div class="navbar-menu relative z-50 hidden">
-        <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+      <div id="navbar-menu" class=" relative z-50 hidden">
+        <div id="navbar-backdrop" class=" fixed inset-0 bg-gray-800 opacity-25"></div>
         <nav class="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 animation-bounce max-w-sm py-6 px-6 rounded-r-2xl bg-white border-r overflow-y-auto">
           <div class="flex items-center mb-8">
             <a class="mr-auto text-3xl font-bold leading-none" href="#">
             <img src={twigal} className="h-10"/>
             </a>
-            <button class="navbar-close">
+            <button id="navbar-close">
               <svg
                 class="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-500"
                 xmlns="http://www.w3.org/2000/svg"
