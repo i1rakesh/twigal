@@ -92,13 +92,14 @@ export default function Header() {
                   </a>
                 </li>
               </ul>
-            </div>
-            <div class="mt-auto">
+              <div class="mt-auto">
             <button onClick={()=>signOut(auth)} className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white hover:bg-red-600 hover:text-white px-2 rounded-md">Logout</button>
               <p class="my-4 text-xs text-center text-gray-400">
                 <span>Copyright © 2021</span>
               </p>
             </div>
+            </div>
+            
           </div>
         </section>
 
@@ -138,7 +139,7 @@ export default function Header() {
         z-index: 10;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: start;
         align-items: center;
       }
     `}</style>

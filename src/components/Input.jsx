@@ -73,8 +73,11 @@ const Input = () =>{
     setImg(null);
   };
     return(
+      <form onSubmit={(event) => event.preventDefault()}>
         <div className='h-14 rounded-2xl p-2 bg-white flex '>
+          
             <input className='w-full' type="text" name="message" placeholder='Enter your message ' onChange={(e)=>setText(e.target.value)} value={text}/>
+            
             <div className=' flex align-middle gap-2'>
              <img className='h-8 cursor-pointer' src={attach} alt="" />
              <input type="file" style={{display:"none"}} id="file" onChange={(e)=>setImg(e.target.files[0])}/>
@@ -82,8 +85,11 @@ const Input = () =>{
                 <img className='h-8 cursor-pointer' src={image} alt="" />
              </label>
              <button onClick={handleSend} className=' px-2 bg-sky-500 rounded-2xl text-white'>SEND</button>
+             
             </div>
+            
         </div>
+        </form>
     )
 }
 export default Input

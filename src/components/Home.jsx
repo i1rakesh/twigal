@@ -1,7 +1,6 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import Chat from "./Chat";
-import Navbar from "./Navbar";
 import RightBar from "./RightBar";
 import "../assests/index.css";
 import Navbar2 from "./Navbar2";

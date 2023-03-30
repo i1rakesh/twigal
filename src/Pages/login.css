@@ -1,7 +1,5 @@
 :root {
-
   --font-family: "Poppins", system-ui;
-
 }
 
 * {
@@ -17,7 +15,6 @@ html {
 }
 
 body {
-
   padding: 0;
   height: 100%;
   display: grid;
@@ -28,7 +25,7 @@ body {
   overflow: hidden;
   -webkit-animation: random 10s infinite;
   animation: random 10s infinite;
-
+  overflow-y: scroll;
 }
 
 @keyframes random {
@@ -37,15 +34,15 @@ body {
   }
 
   30% {
-    background-color: #91E9FF;
+    background-color: #91e9ff;
   }
 
   45% {
-    background-color: #00EAD7;
+    background-color: #00ead7;
   }
 
   60% {
-    background-color: #B6B7FF;
+    background-color: #b6b7ff;
   }
 
   75% {
@@ -58,8 +55,8 @@ body {
 }
 
 .overlay {
-  width: 25vw;
-  padding: 4rem 4rem;
+  width: 28vw;
+  padding: 2rem;
   display: flex;
   align-items: center;
   background: rgba(255, 255, 255, 0.375);
@@ -67,8 +64,9 @@ body {
   border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.125);
   z-index: 1;
+  justify-content: center;
 }
-.overlay__inner{
+.overlay__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,13 +83,14 @@ body {
 
 .logo {
   height: 11vh;
-  width: 10vw;
 }
 
 .text-gradient {
-  background-image: linear-gradient(45deg,
-      var(--base) 25%,
-      var(--complimentary2));
+  background-image: linear-gradient(
+    45deg,
+    var(--base) 25%,
+    var(--complimentary2)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
@@ -103,14 +102,11 @@ body {
   margin-bottom: 3rem;
 }
 
-
-
-
-
 @media only screen and (max-width: 1140px) {
   .overlay {
-    padding: 8rem 4rem;
-    width: 55%;
+    width: 50vw;
+    justify-content: center;
+    
   }
 }
 
@@ -124,13 +120,12 @@ body {
     height: auto;
     width: 50%;
   }
-
 }
 
 @media only screen and (max-width: 600px) {
   .overlay {
     padding: 1.5rem;
-    width: 55%;
+    width: 55vw;
   }
 }
 
@@ -146,19 +141,6 @@ body {
   vertical-align: middle;
 }
 
-* {
-  box-sizing: inherit;
-}
-
-html {
-  box-sizing: border-box;
-  font-size: var(--htmlFontSize);
-}
-
-
-:root {
-  --formGap: 0.875rem;
-}
 
 input {
   background-image: none;
@@ -176,15 +158,13 @@ input {
   background-color: transparent;
   border: 3px solid #29b6f6;
   border-radius: 50px;
-  -webkit-transition: all .15s ease-in-out;
-  transition: all .15s ease-in-out;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
   color: #29b6f6;
   font-size: large;
 }
 
 .sign-in:hover {
-  /* box-shadow: 0 0 10px 0 #29b6f6 inset, 0 0 20px 2px #29b6f6; */
-  /* border: 3px solid #29b6f6; */
   background-color: #29b6f6;
   color: white;
   border: 3px solid white;
@@ -203,7 +183,6 @@ input {
 .form button {
   inline-size: 100%;
 }
-
 
 .login label,
 .login input,
@@ -235,7 +214,7 @@ p {
 .text--center {
   text-align: center;
 }
-.google-auth{
+.google-auth {
   margin-top: 1rem;
   margin-left: 3rem;
 }
