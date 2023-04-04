@@ -26,20 +26,30 @@ const Chats = () => {
     dispatch({type:"CHANGE_USER", payload: u})
   )
   return (
-    <div className="mt-2 h-4/5 w-96 overflow-y-scroll mr-1">
-      {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
-        <div key={chat[0]} onClick={()=>handleSelect(chat[1].userInfo)} className="mt-4 p-2 flex space-x-3 cursor-pointer bg-white hover:bg-slate-200 rounded-2xl">
-          <img
-            className=" mt-1 object-cover rounded-full w-12 h-12"
-            src={chat[1].userInfo.photoURL}
-            alt=""
-          />
-          <div className="">
-            <span className="text-lg font-semibold">{chat[1].userInfo.displayName}</span>
-            <p className="m-0 text-md text-gray-500">{chat[1].lastMessage?.text}</p>
+    <div className="mt-2 h-4/5 w-96 overflow-y-scroll mx-auto">
+      {Object.entries(chats)
+        ?.sort((a, b) => b[1].date - a[1].date)
+        .map((chat) => (
+          <div
+            key={chat[0]}
+            onClick={() => handleSelect(chat[1].userInfo)}
+            className="mt-4 p-2 flex space-x-3 cursor-pointer bg-gray-50/50 hover:bg-gray-100 rounded-2xl"
+          >
+            <img
+              className=" mt-1 object-cover rounded-full w-12 h-12"
+              src={chat[1].userInfo.photoURL}
+              alt=""
+            />
+            <div className="">
+              <span className="text-lg font-semibold">
+                {chat[1].userInfo.displayName}
+              </span>
+              <p className="m-0 text-md text-gray-500 overflow-y-hidden h-5 w-[15vw]">
+                {chat[1].lastMessage?.text}
+              </p>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

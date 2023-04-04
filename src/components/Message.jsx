@@ -14,11 +14,13 @@ const Message = ({ message }) => {
   return (
     <div
       ref={ref}
-      className={`message owner flex gap-10 ${message.senderId === currentUser.uid && "owner"}`}
+      className={`message owner flex gap-2 ${
+        message.senderId === currentUser.uid && "owner"
+      }`}
     >
-      <div className="flex flex-col text-gray-400 mx-4">
+      <div className="flex flex-col mx-4 ">
         <img
-        className="w-8 h-8 object-cover rounded-full"
+          className="w-8 h-8 object-cover rounded-full "
           src={
             message.senderId === currentUser.uid
               ? currentUser.photoURL
@@ -26,11 +28,15 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span >just now</span>
+        <span className="text-xs py-3">JUST NOW</span>
       </div>
-      <div className="messagecontent max-w-42 flex flex-col gap-6 mb-10">
-        <p className="bg-white p-4 rounded-2xl mt-6 max-w-max">{message.text}</p>
-        {message.img && <img className="w-6/12 h-6/12 rounded-3xl" src={message.img} alt="" />}
+      <div className="messagecontent flex flex-col  ">
+        <p className="rounded-l-xl  rounded-br-xl p-4 my-4 bg-transparent text-black  max-w-[60vw] whitespace-pre-line break-words bg-white-100/50 backdrop-blur-sm">
+          {message.text}
+        </p>
+        {message.img && (
+          <img className="w-6/12 h-6/12" src={message.img} alt="" />
+        )}
       </div>
     </div>
   );

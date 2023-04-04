@@ -75,11 +75,11 @@ const Search = () => {
     setUsername("")
   };
   return (
-    <div className="border border-white rounded-2xl p bg-white">
+    <div className=" rounded-2xl p border-2 border-black w-11/12 mx-auto mt-2">
       <div className="p-2 flex">
         <input
           placeholder="Search User"
-          className="rounded-full w-full h-8 px-1.5"
+          className="rounded-full w-full h-8 px-1.5  bg-transparent "
           type="text"
           onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
