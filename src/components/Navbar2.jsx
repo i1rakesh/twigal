@@ -10,7 +10,7 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const { currentUser } = useContext(AuthContext);
   return (
-    <div class="rounded-lg m-1 w-90 h-16 flex flex-wrap items-center mx-2 py-2 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+    <div class=" ml-24vw w-75vw h-16 flex flex-wrap my-2 rounded-2xl items-center bg-gray-100/50 backdrop-blur-sm text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
       <nav>
         <section className="MOBILE-MENU flex items-center text-blue-600 p-3 left-0 lg:hidden">
           <div
@@ -26,9 +26,14 @@ export default function Header() {
             </svg>
           </div>
           <a href="/">
-            <img src={twigal} className="h-10" />
+            <img src={twigal} className="h-10 " />
           </a>
-          <button onClick={()=>signOut(auth)} className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white hover:bg-red-600 hover:text-white px-2 rounded-md">Logout</button>
+          <button
+            onClick={() => signOut(auth)}
+            className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white px-2  rounded-md hover:bg-red-600 hover:text-white"
+          >
+            Logout
+          </button>
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
               className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
@@ -49,7 +54,7 @@ export default function Header() {
             </div>
             <div class="flex flex-col w-4/6 animation-bounce  py-6 px-6 rounded-r-2xl bg-white border-r">
               <img src={twigal} className="h-14" />
-              
+
               <ul>
                 <li class="mb-1">
                   <a
@@ -93,35 +98,63 @@ export default function Header() {
                 </li>
               </ul>
               <div class="mt-auto">
-            <button onClick={()=>signOut(auth)} className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white hover:bg-red-600 hover:text-white px-2 rounded-md">Logout</button>
-              <p class="my-4 text-xs text-center text-gray-400">
-                <span>Copyright © 2021</span>
-              </p>
+                <button
+                  onClick={() => signOut(auth)}
+                  className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white hover:bg-red-600 hover:text-white px-2 rounded-md"
+                >
+                  Logout
+                </button>
+                <p class="my-4 text-xs text-center text-gray-400">
+                  <span>Copyright © 2021</span>
+                </p>
+              </div>
             </div>
-            </div>
-            
           </div>
         </section>
 
-        <ul className="DESKTOP-MENU hidden space-x-8 lg:flex">
-          
+        <ul className="DESKTOP-MENU hidden w-75vw  flex  justify-around lg:flex">
           <a href="/">
-            <img src={twigal} className="h-8" />
+            <img src={twigal} className="h-8 " />
           </a>
-          
+
           <li>
-            <a href="/about" className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg ">Home</a>
+            <a
+              href="/about"
+              className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
+            >
+              Home
+            </a>
           </li>
           <li>
-            <a href="/portfolio" className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg ">About Us</a>
+            <a
+              href="/portfolio"
+              className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
+            >
+              About Us
+            </a>
           </li>
           <li>
-            <a href="/contact" className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg ">Services</a>
+            <a
+              href="/contact"
+              className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
+            >
+              Services
+            </a>
           </li>
           <li>
-            <a href="/contact" className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg ">Contact Us</a>
+            <a
+              href="/contact"
+              className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
+            >
+              Contact Us
+            </a>
           </li>
-          <button onClick={()=>signOut(auth)} className=" border-solid border-2 border-black mx-3 uppercase font-bold bg-white hover:bg-red-600 hover:text-white px-2 rounded-md">Logout</button>
+          <button
+            onClick={() => signOut(auth)}
+            className="uppercase font-bold  hover:bg-red-600 hover:text-white px-2 rounded-md"
+          >
+            Logout
+          </button>
         </ul>
       </nav>
       <style>{`
