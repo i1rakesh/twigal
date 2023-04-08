@@ -85,7 +85,7 @@ const Input = () =>{
           />
 
           <div className=" flex w-1/6 justify-between align-middle gap-2">
-            <img className="h-8 cursor-pointer" src={attach} alt="" />
+            {/* <img className="h-8 cursor-pointer" src={attach} alt="" /> */}
             <input
               type="file"
               style={{ display: "none" }}

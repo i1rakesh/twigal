@@ -10,9 +10,9 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const { currentUser } = useContext(AuthContext);
   return (
-    <div class=" ml-24vw w-75vw h-16 flex flex-wrap my-2 rounded-2xl items-center bg-gray-100/50 backdrop-blur-sm text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+    <div class=" w-90vw h-16 flex flex-wrap my-2 rounded-2xl items-center bg-gray-100/50 backdrop-blur-sm text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light z-[2] relative">
       <nav>
-        <section className="MOBILE-MENU flex items-center text-blue-600 p-3 left-0 lg:hidden">
+        <section className="MOBILE-MENU flex items-center text-blue-600 p-3 left-0 lg:hidden ">
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
@@ -26,7 +26,7 @@ export default function Header() {
             </svg>
           </div>
           <a href="/">
-            <img src={twigal} className="h-10 " />
+            <img src={twigal} className="h-10" />
           </a>
           <button
             onClick={() => signOut(auth)}
@@ -36,7 +36,7 @@ export default function Header() {
           </button>
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
-              className="CROSS-ICON absolute top-0 right-0 px-8 py-8"
+              className="CROSS-ICON absolute top-0 right-0 px-8 py-8 "
               onClick={() => setIsNavOpen(false)} // change isNavOpen state to false to close the menu
             >
               <svg
@@ -52,8 +52,8 @@ export default function Header() {
                 <line x1="6" y1="6" x2="18" y2="18" />
               </svg>
             </div>
-            <div class="flex flex-col w-4/6 animation-bounce  py-6 px-6 rounded-r-2xl bg-white border-r">
-              <img src={twigal} className="h-14" />
+            <div class="flex flex-col w-full animation-bounce py-6 px-6 rounded-r-2xl rounded-xl">
+              <img src={twigal} className="h-14 w-[10vw]" />
 
               <ul>
                 <li class="mb-1">
@@ -164,16 +164,16 @@ export default function Header() {
       .showMenuNav {
         display: block;
         position: absolute;
-        width: 40%;
+        width: 30%;
         height: 100vh;
         top: 0;
         left: 0;
-        background: white;
-        z-index: 10;
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: center;
+        background-color: rgb(243 244 246);
+        border-radius: 0rem 2rem 2rem 0rem;
       }
     `}</style>
     </div>

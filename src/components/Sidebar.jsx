@@ -4,7 +4,7 @@ import Search from "../components/Search"
 import Chats from '../components/Chats'
 const Sidebar =  () =>{
     return (
-      <div className=" bg-gray-100/50 backdrop-blur-sm w-23vw mx-2 mt-5rem h-99vh rounded-2xl">
+      <div className="bg-gray-50/50 backdrop-blur-sm w-[28vw] mx-2 h-full rounded-2xl mt-4">
         <Search />
         <Chats />
       </div>

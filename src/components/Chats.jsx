@@ -26,7 +26,7 @@ const Chats = () => {
     dispatch({type:"CHANGE_USER", payload: u})
   )
   return (
-    <div className="mt-2 h-4/5 w-96 overflow-y-scroll mx-auto">
+    <div className="mt-2 h-4/5 mx-4 overflow-y-scroll w-[25vw]">
       {Object.entries(chats)
         ?.sort((a, b) => b[1].date - a[1].date)
         .map((chat) => (

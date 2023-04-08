@@ -10,7 +10,7 @@ import { ChatContext } from "../context/ChatContext";
 const Chat = () => {
   const { data } = useContext(ChatContext);
   return (
-    <div className="flex-2 w-[70vw] h-full  mr-[1vw] ">
+    <div className="flex-2 w-[70vw] h-full  mr-[1vw]">
       <div className="h-12 bg-white flex justify-between p-2 rounded-t-2xl bg-gray-100/50 backdrop-blur-sm ">
         <span className="m-auto font-bold">{data.user?.displayName}</span>
         <div className="flex mt-2 gap-4">

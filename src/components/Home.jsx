@@ -7,12 +7,12 @@ import Navbar2 from "./Navbar2";
 const Home = () => {
   return (
     <>
-      <div className="m-0 p-0 h-screen  w-screen overflow-hidden">
+      <div className="m-0 p-0 h-screen w-screen overflow-scroll">
         <Navbar2 />
-        <div className="flex h-4/5">
+        <div className="flex h-5/6 z-[1]">
           <Sidebar />
-          <RightBar />
           <Chat />
+          <RightBar />
         </div>
       </div>
     </>
