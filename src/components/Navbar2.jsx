@@ -14,7 +14,7 @@ export default function Header() {
       <nav>
         <section className="MOBILE-MENU flex items-center text-blue-600 p-3 left-0 lg:hidden ">
           <div
-            className="HAMBURGER-ICON space-y-2"
+            className="HAMBURGER-ICON space-y-2 mx-4"
             onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
           >
             <svg
@@ -26,7 +26,7 @@ export default function Header() {
             </svg>
           </div>
           <a href="/">
-            <img src={twigal} className="h-10" />
+            <img src={twigal} className="h-10 mx-4" />
           </a>
           <button
             onClick={() => signOut(auth)}

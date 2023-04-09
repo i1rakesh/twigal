@@ -3,8 +3,9 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
-
+import { useNavigate } from "react-router";
 const Chats = () => {
+  const navigate = useNavigate();
   const [chats, setChats] = useState([]);
 
   const { currentUser } = useContext(AuthContext);
@@ -24,9 +25,13 @@ const Chats = () => {
 
   const handleSelect = (u) =>(
     dispatch({type:"CHANGE_USER", payload: u})
+ 
   )
+  const handleNavigate = () => {
+    navigate('/');
+    };
   return (
-    <div className="mt-2 h-4/5 mx-4 overflow-y-scroll w-[25vw]">
+    <div onClick={handleNavigate} className="mt-2 h-4/5 mx-4 overflow-y-scroll w-[25vw]">
       {Object.entries(chats)
         ?.sort((a, b) => b[1].date - a[1].date)
         .map((chat) => (

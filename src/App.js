@@ -4,6 +4,7 @@ import Login from "./Pages/Login";
 import { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
+import News from "./components/News";
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -19,16 +20,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route
-            index
-            element={
-              <ProtectedRoute>
-                <Home />
-              </ProtectedRoute>
-            }
-          />
+          
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route index element={<ProtectedRoute><Home /></ProtectedRoute>}/>
+          <Route path="news" element={<ProtectedRoute><News /></ProtectedRoute>}/>
         </Route>
       </Routes>
     </BrowserRouter>
