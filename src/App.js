@@ -5,6 +5,8 @@ import { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 import News from "./components/News";
+import Meme from "./components/Meme"
+
 function App() {
   const { currentUser } = useContext(AuthContext);
 
@@ -15,8 +17,9 @@ function App() {
     }
     return children;
   };
-
+  
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/">
@@ -25,6 +28,7 @@ function App() {
           <Route path="register" element={<Register />} />
           <Route index element={<ProtectedRoute><Home /></ProtectedRoute>}/>
           <Route path="news" element={<ProtectedRoute><News /></ProtectedRoute>}/>
+          <Route path="memes" element={<ProtectedRoute><Meme /></ProtectedRoute>}/>
         </Route>
       </Routes>
     </BrowserRouter>

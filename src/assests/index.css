@@ -58,3 +58,37 @@
   min-width: 10vw;
   max-width: 60vw;
 }
+:root{
+  --widthContainer: 200px;
+  --heightContainer: calc(var(--widthContainer) / 2);
+  --heightPoint: calc(var(--widthContainer) / 9);
+  --widthPoint: var(--heightPoint);
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader{
+  height: var(--heightContainer);
+  width: var(--widthContainer);
+  border-radius: 3em;
+  background: #191919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.point{
+  height: var(--heightPoint);
+  width: var(--widthPoint);
+  border-radius: 50%;
+  background-color: gray;
+  margin: 5px;
+}

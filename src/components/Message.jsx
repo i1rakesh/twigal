@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
+import { useState } from "react";
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
@@ -10,7 +11,7 @@ const Message = ({ message }) => {
   useEffect(() => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   }, [message]);
-
+  
   return (
     <div
       ref={ref}
@@ -28,7 +29,7 @@ const Message = ({ message }) => {
           }
           alt=""
         />
-        <span className="text-xs py-3">JUST NOW</span>
+        <span className="text-xs py-3"></span>
       </div>
       <div className="messagecontent flex flex-col  ">
         <p className="rounded-l-xl  rounded-br-xl p-4 my-4 bg-transparent text-black  max-w-[60vw] whitespace-pre-line break-words bg-white-100/50 backdrop-blur-sm">

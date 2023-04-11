@@ -13,14 +13,15 @@ import {
   import { db, storage } from "../firebase";
 import { v4 as uuidv4 } from "uuid";
   import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import Message from './Message';
 const Input = () =>{
     const [text, setText] = useState("");
   const [img, setImg] = useState(null);
-
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
   const handleSend = async () => {
+    
     if (img) {
       const storageRef = ref(storage, uuidv4());
 
@@ -73,6 +74,7 @@ const Input = () =>{
     setImg(null);
   };
     return (
+      <>
       <form onSubmit={(event) => event.preventDefault()}>
         <div className="h-14  rounded-b-2xl p-2 bg-gray-100/50 backdrop-blur-sm flex ">
           <input
@@ -104,6 +106,7 @@ const Input = () =>{
           </div>
         </div>
       </form>
+      </>
     );
 }
 export default Input
