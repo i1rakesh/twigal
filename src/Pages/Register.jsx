@@ -10,7 +10,7 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import { useNavigate, Link, useResolvedPath } from "react-router-dom";
-
+import addImage from "../assests/add-photo.png"
 const Register = () => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -116,11 +116,12 @@ const Register = () => {
                 type="file"
                 id="file"
               />
-              <label htmlFor="file">
-                <span>Add an avatar</span>
+              <label htmlFor="file" className="flex gap-[1rem] justify-center cursor-pointer font-bold hover:bg-cyan-200 rounded-xl ">
+                <span>ADD A PROFILE PHOTO</span>
+                <img className="w-[2rem] h-[2rem]" src={addImage} alt="" />
               </label>
             </div>
-            <div className="form_field">
+            <div className="form_field ">
               <button className="sign-in" disabled={loading}>
                 Sign up
               </button>
@@ -133,7 +134,7 @@ const Register = () => {
           </form>
 
           <p className="text--center">
-            Already have an account<Link to="/Login">Login</Link>
+            Already have an account <br /> <Link to="/Login">Login</Link>
           </p>
         </div>
       </div>

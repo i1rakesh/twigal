@@ -4,9 +4,12 @@ import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
 import { useNavigate } from "react-router";
+import HashLoader from 'react-spinners/HashLoader';
+
 const Chats = () => {
   const navigate = useNavigate();
   const [chats, setChats] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
@@ -15,6 +18,7 @@ const Chats = () => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
         setChats(doc.data());
+        setLoading(false);
       });
       return () => {
         unsub();
@@ -30,11 +34,19 @@ const Chats = () => {
   const handleNavigate = () => {
     navigate('/');
     };
+
+    if (loading) {
+    return(
+      <div className="w-[100%] h-[50%] flex justify-center mt-[30vh]">
+          <HashLoader color="#00e0ff" speedMultiplier={3}/> 
+      </div> 
+      )
+    }
   return (
-    <div onClick={handleNavigate} className="mt-2 h-4/5 mx-4 overflow-y-scroll w-[25vw]">
+    <div onClick={handleNavigate} className="mt-2 h-4/5 mx-4 overflow-y-scroll w-[25vw]">    
       {Object.entries(chats)
         ?.sort((a, b) => b[1].date - a[1].date)
-        .map((chat) => (
+        .map((chat) => (     
           <div
             key={chat[0]}
             onClick={() => handleSelect(chat[1].userInfo)}
@@ -54,8 +66,11 @@ const Chats = () => {
               </p>
             </div>
           </div>
+          
         ))}
+        
     </div>
+    
   );
 };
 export default Chats;

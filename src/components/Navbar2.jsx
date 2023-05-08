@@ -1,12 +1,17 @@
 import { useState } from "react"; // import state
 import twigal from "../assests/Twigal.png";
 import { signOut } from "firebase/auth";
-
+import { useNavigate } from "react-router";
 import { auth } from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const navigateContactUs = () => {
+  navigate('/contact');
+  };
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const { currentUser } = useContext(AuthContext);
   return (
@@ -91,9 +96,9 @@ export default function Header() {
                 <li class="mb-1">
                   <a
                     class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    href="#"
+                    href="#" onClick={navigateContactUs}
                   >
-                    Contact
+                    Contact Us
                   </a>
                 </li>
               </ul>
@@ -119,7 +124,7 @@ export default function Header() {
 
           <li>
             <a
-              href="/about"
+              href="#"
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
               Home
@@ -127,7 +132,7 @@ export default function Header() {
           </li>
           <li>
             <a
-              href="/portfolio"
+              href="#"
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
               About Us
@@ -135,7 +140,7 @@ export default function Header() {
           </li>
           <li>
             <a
-              href="/contact"
+              href="#"
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
               Services

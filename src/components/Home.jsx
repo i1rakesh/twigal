@@ -12,6 +12,7 @@ const Home = () => {
         <div className="flex h-5/6 z-[1]">
           <Sidebar />
           <Chat />
+          
           <RightBar />
         </div>
       </div>

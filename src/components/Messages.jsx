@@ -18,8 +18,6 @@ const Messages = () => {
     };
   }, [data.chatId]);
 
-  console.log(messages)
-
   return (
     <div className="h-5/6 overflow-scroll overflow-x-hidden bg-gray-100/50 backdrop-blur-sm z-[-1]">
       {messages.map((m) => (

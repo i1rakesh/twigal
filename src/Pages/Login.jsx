@@ -75,7 +75,7 @@ const Login = () => {
           </form>
 
           <p className="text--center">
-            Don't have an account <Link to="/Register">Sign up now</Link>
+            Don't have an account <br /> <Link to="/Register">Sign up now</Link>
           </p>
         </div>
       </div>
