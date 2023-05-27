@@ -5,12 +5,33 @@ import Logos from "./logo.png";
 import { GoogleButton } from "react-google-button";
 import {  Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { signInWithGoogle } from "../context/googleAuth";
-import { auth } from "../firebase";
+import { auth , provider} from "../firebase";
+import { getAuth, signInWithPopup } from "firebase/auth";
 
 const Login = () => {
   const [err, setErr] = useState(false);
   const navigate = useNavigate();
+  const auth = getAuth();
+  
+
+    
+      const googleSignIn = () => {
+        signInWithPopup(auth, provider)
+          .then(() =>{ 
+                try {
+                  navigate("/");
+                } 
+              
+                catch (err) {
+                  console.log(err);
+                  setErr(true);
+                }
+                // console.log(result)
+                // console.log(result.user.displayName)
+              });
+            ;
+          }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +90,7 @@ const Login = () => {
               </button>
               {err && <span>Something went wrong</span>}
             </div>
-            <div className="google-auth" onClick={signInWithGoogle}>
+            <div className="google-auth" onClick={googleSignIn}>
                 <GoogleButton />
               </div>
           </form>

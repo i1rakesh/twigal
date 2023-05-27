@@ -42,19 +42,16 @@
   margin: 1rem;
   
 }
-.false .messagecontent{ 
-  /* background-color: rgb(7, 152, 248);
-  padding: 0.1rem;
-  min-width: 10vw;
-  max-width: 60vw;
-  border-radius: 2rem; */
+
+.false .messagecontent p:first-child{ 
+  background-color: rgb(7, 152, 248);
+  padding: 1rem;
   border-top-left-radius: 0.75rem/* 12px */;
   border-bottom-left-radius: 0.75rem/* 12px */;
   border-bottom-right-radius: 0.75rem/* 12px */;
   margin-top: 1rem/* 16px */;
   margin-bottom: 1rem/* 16px */;
   background-color: rgba(102, 102, 249, 0.9);
-  padding: 0;
   min-width: 10vw;
   max-width: 60vw;
 }

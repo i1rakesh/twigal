@@ -5,13 +5,25 @@ import { useNavigate } from "react-router";
 import { auth } from "../firebase";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-
 export default function Header() {
   const navigate = useNavigate();
 
   const navigateContactUs = () => {
   navigate('/contact');
   };
+  const navigateSuperChat = () => {
+    navigate('/superchat');
+    };
+    const navigateFeed = () => {
+      navigate('/feed');
+      };
+      const navigateUpdate = () => {
+        navigate('/updateProfile');
+        };
+        const navigateHome = () => {
+          navigate('/');
+          };
+
   const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
   const { currentUser } = useContext(AuthContext);
   return (
@@ -64,7 +76,7 @@ export default function Header() {
                 <li class="mb-1">
                   <a
                     class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    href="#"
+                    onClick={navigateHome}
                   >
                     Home
                   </a>
@@ -72,35 +84,36 @@ export default function Header() {
                 <li class="mb-1">
                   <a
                     class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    href="#"
+                    onClick={navigateSuperChat}
                   >
-                    About Us
+                   SuperChat
                   </a>
                 </li>
                 <li class="mb-1">
                   <a
                     class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    href="#"
+                    onClick={navigateFeed}
                   >
-                    Services
+                    Feed
                   </a>
                 </li>
                 <li class="mb-1">
                   <a
                     class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    href="#"
+                    onClick={navigateUpdate}
                   >
-                    Pricing
+                    Profile
                   </a>
                 </li>
                 <li class="mb-1">
                   <a
                     class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded"
-                    href="#" onClick={navigateContactUs}
+                    onClick={navigateContactUs}
                   >
                     Contact Us
                   </a>
                 </li>
+                
               </ul>
               <div class="mt-auto">
                 <button
@@ -117,14 +130,14 @@ export default function Header() {
           </div>
         </section>
 
-        <ul className="DESKTOP-MENU hidden w-75vw  flex  justify-around lg:flex">
+        <ul className="DESKTOP-MENU hidden w-[75vw]  justify-around lg:flex">
           <a href="/">
-            <img src={twigal} className="h-8 " />
+            <img src={twigal} className="h-8"/>
           </a>
 
           <li>
             <a
-              href="#"
+              onClick={navigateHome}
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
               Home
@@ -132,23 +145,31 @@ export default function Header() {
           </li>
           <li>
             <a
-              href="#"
+              onClick={navigateSuperChat}
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
-              About Us
+              SuperChat
             </a>
           </li>
           <li>
             <a
-              href="#"
+              onClick={navigateFeed}
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
-              Services
+              Feed
             </a>
           </li>
           <li>
             <a
-              href="/contact"
+              onClick={navigateUpdate}
+              className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
+            >
+              Profile
+            </a>
+          </li>
+          <li>
+            <a
+              onClick={navigateContactUs}
               className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg "
             >
               Contact Us

@@ -30,27 +30,27 @@ body {
 
 @keyframes random {
   0% {
-    background-color: #fa85c5;
+    background-color: #fdcce7;
   }
 
   30% {
-    background-color: #91e9ff;
+    background-color: #c5eff9;
   }
 
   45% {
-    background-color: #00ead7;
+    background-color: #aff6f0;
   }
 
   60% {
-    background-color: #b6b7ff;
+    background-color: #bcbdfa;
   }
 
   75% {
-    background-color: #fcbdec;
+    background-color: #fbccf0;
   }
 
   100% {
-    background-color: #fac6ac;
+    background-color: #fbd7c4;
   }
 }
 
@@ -216,5 +216,5 @@ p {
 }
 .google-auth {
   margin-top: 1rem;
-  margin-left: 3rem;
+
 }

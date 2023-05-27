@@ -18,5 +18,10 @@ module.exports = {
       },
     },
   },
+  theme: {
+    primary: "white",
+      secondary: "black",
+    extend: {},
+  },
   plugins: [],
 };

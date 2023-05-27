@@ -21,7 +21,7 @@ import axios from "axios";
     data.map((value)=>{
     return(
       
-      <div className=" flex w-[65vw] rounded-[1.5rem] bg-gray-50/50 shadow-lg p-4">
+      <div className=" flex w-[65vw] rounded-[1.5rem] mt-[1rem] bg-gray-50/50 shadow-lg p-4">
       <img className= " w-[20vw] h-[15vw]  rounded-xl"  src={value.image_url} alt="Failed to load image" />
       <div className="w-[40vw] p-[1rem]">
       <h1 className="mb-2 text-xl font-medium leading-tight text-neutral-800 ">{value.title}</h1>

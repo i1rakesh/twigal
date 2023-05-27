@@ -4,17 +4,53 @@ import "./login.css";
 import Logos from "./logo.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db, storage } from "../../src/firebase";
-import { signInWithGoogle } from "../context/googleAuth";
+
 import { GoogleButton } from "react-google-button";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import {  signInWithPopup } from "firebase/auth";
+import { provider} from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { useState } from "react";
-import { useNavigate, Link, useResolvedPath } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import addImage from "../assests/add-photo.png"
 const Register = () => {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+
+  const googleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) =>{ 
+            try {
+              //Update profile
+               updateProfile(result.user, {
+                displayName: result.user.displayName,
+                photoURL: result.user.photoURL,
+              });
+            
+          
+               setDoc(doc(db, "users", result.user.uid), {
+                uid: result.user.uid,
+                displayName: result.user.displayName,
+                email: result.user.email,
+                photoURL: result.user.photoURL,
+              });
+            
+              //create empty user chats on firestore
+              setDoc(doc(db, "userChats", result.user.uid), {});
+              navigate("/");
+            } 
+          
+            catch (err) {
+              console.log(err);
+              setErr(true);
+            }
+            // console.log(result)
+            // console.log(result.user.displayName)
+          });
+        ;
+      }
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -127,7 +163,7 @@ const Register = () => {
               </button>
               {loading && "Uploading and compressing the image please wait..."}
               {err && <span>Something went wrong</span>}
-              <div className="google-auth" onClick={signInWithGoogle}>
+              <div className="google-auth" onClick={googleSignIn}>
                 <GoogleButton />
               </div>
             </div>

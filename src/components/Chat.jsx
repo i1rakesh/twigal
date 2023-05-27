@@ -9,9 +9,10 @@ import { useContext } from "react";
 import { ChatContext } from "../context/ChatContext";
 const Chat = () => {
   const { data } = useContext(ChatContext);
+  console.log(data)
   return (
     <div className="flex-2 w-[70vw] h-full mt-[1rem]  mr-[1vw]">
-      <div className="h-12 bg-white flex justify-between p-2 rounded-t-2xl bg-gray-100/50 backdrop-blur-sm ">
+      <div className="h-12  flex justify-between p-2 rounded-t-2xl bg-gray-100/50 backdrop-blur-sm ">
         <span className="m-auto font-bold">{data.user?.displayName}</span>
         <div className="flex mt-2 gap-4">
           <img className="h-6 " src={video} alt="" />

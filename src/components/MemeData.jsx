@@ -1,11 +1,11 @@
 import React from "react";
 import axios from "axios";
-
+import { useState, useEffect } from "react";
   const baseURL = "https://api.imgflip.com/get_memes";
   const NewsData = () => {
-  const [data, setData] = React.useState(null);
+  const [data, setData] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     axios.get(baseURL).then((response) => {
       console.log(response.data);
       setData(response.data.data.memes);

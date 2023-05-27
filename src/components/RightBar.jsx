@@ -16,8 +16,8 @@ const RigntBar = () => {
       navigate('/music');
       };
   return (
-    <div className="h-full w-16 mx-2 mr-4 mt-[1rem]  rounded-2xl bg-gray-50/50 backdrop-blur-sm">
-      <div className="mt-40 flex flex-col justify-evenly gap-y-40 ">
+    <div className="h-full w-16 mx-2 mr-4 mt-[1rem]  rounded-2xl shadow-xl bg-gray-50/50 backdrop-blur-sm">
+      <div className=" flex flex-col gap-y-40 ">
         <button>
         <img
           activeclassname="active"

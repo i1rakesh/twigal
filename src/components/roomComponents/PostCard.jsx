@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { AuthContext } from "../context/AuthContext";
-import { ChatContext } from "../context/ChatContext";
+import { AuthContext } from "../../context/AuthContext";
+import { ChatContext } from "../../context/ChatContext";
+
 import { useState } from "react";
 const Message = ({ message }) => {
   const { currentUser } = useContext(AuthContext);
@@ -31,15 +32,18 @@ const Message = ({ message }) => {
         <span className="text-xs py-3"></span>
       </div>
       
-      <div className="messagecontent flex flex-col  ">
+      <div className="bg-gray-400/50 p-2 rounded-2xl flex flex-col  ">
       {message.img && (
-          <img className="w-[50vw] h-6/12" src={message.img} alt="" />
+          <img className="w-[50vw] h-6/12 rounded-3xl" src={message.img} alt="" />
         )}
-        <p className="rounded-l-xl  rounded-br-xl p-4 my-4 bg-transparent text-black  max-w-[60vw] whitespace-pre-line break-words bg-white-100/50 backdrop-blur-sm">
+        <div className="flex justify-between">
+        <p className="rounded-xl bg-slate-50/80  min-w-[30vw]  p-4  rounded-br-xl  my-4 text-black  max-w-[60vw] ">
           {message.text}
-          {/* <span>{new Date(message.date?.toDate().toUTCString())}</span> */}
+          
         </p>
         <p className="text-gray-600">{new Date(message.date?.toDate()).toUTCString()}</p>
+        </div>
+        {/* <p>{new Date(message.date?.toDate()).toUTCString()}</p> */}
         
         
       </div>
